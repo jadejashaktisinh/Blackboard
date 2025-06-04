@@ -10,9 +10,9 @@ const TopicSchema = require('../../../models/TopicSchema')
 const createAssignment = async (req, res) => {
     try {
         cloudinary.config({ 
-            cloud_name: 'dmzhkotwm', 
-            api_key: '671829687472458', 
-            api_secret: 'EtP4wSAfSWeb521aDX3k6yAMEfM' 
+            cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
+            api_key: process.env.CLOUDINARY_API_KEY, 
+            api_secret: process.env.CLOUDINARY_API_SECRET 
         });
         
         let files = [];
