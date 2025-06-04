@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
+import { BACKEND_URL } from '~/utils/env';
 
 const AuthContext = createContext({
   
@@ -11,7 +12,7 @@ export default AuthContext
 
   const [name,setName] = useState('')
   const [isLogedIn,setIsLogedIn] = useState(false)
-
+  const [classData,setClassData] = useState({})
 
 
   useEffect(()=>{
@@ -19,7 +20,7 @@ export default AuthContext
 
     if(localStorage.getItem('_id')){
       setIsLogedIn(true)
-      fetch(`http://localhost:3000/getuser/${localStorage.getItem('_id')}`,{
+      fetch(`${BACKEND_URL}/getuser/${localStorage.getItem('_id')}`,{
         method:"GET"
       }).then(res =>{
         res.json().then(data =>{
@@ -31,7 +32,7 @@ export default AuthContext
 
   },[])
   return (
-    <AuthContext.Provider value={{name,setName,isLogedIn,setIsLogedIn}}>
+    <AuthContext.Provider value={{name,setName,isLogedIn,setIsLogedIn,classData,setClassData}}>
         {children}
     </AuthContext.Provider>
   )

@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 import AuthContext from "~/Contex/AuthenticationContext";
+import { BACKEND_URL } from "~/utils/env";
 
 export default function Login(){
 
@@ -13,7 +14,7 @@ export default function Login(){
    function handleSubmit(e:any){
     e.preventDefault();
 
-    fetch('http://localhost:3000/login',{
+    fetch(`${BACKEND_URL}/login`,{
       method:"POST",
       headers:{
           "Content-type": "application/json"

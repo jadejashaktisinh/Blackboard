@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router';
 import { showLoader, hideLoader } from '~/utils/loader';        
+import { BACKEND_URL } from '~/utils/env';
 export default function CreateTopic(props:any) {
     const [inputValue, setInputValue] = useState('');
 
@@ -8,7 +9,7 @@ export default function CreateTopic(props:any) {
 
     const handleSubmit = () => {
         showLoader();
-        fetch("http://localhost:3000/createtopic",{
+            fetch(`${BACKEND_URL}/createtopic`,{
             method:"POST",
             headers:{
               "Content-type": "application/json"

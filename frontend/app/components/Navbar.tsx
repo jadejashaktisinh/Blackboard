@@ -8,11 +8,10 @@ interface NavbarProps {
     flag: boolean;
     set: () => void;
     setFlag: (flag: boolean) => void;
-   
 }
 
 export default function Navbar({ set, setFlag, flag }: NavbarProps) {
-    const {name,isLogedIn}:any = useContext(AuthContext)
+    const {name,isLogedIn,classData}:any = useContext(AuthContext)
 
     const location = useLocation();
     const [isCreateClassOpen, setIsCreateClassOpen] = useState(false);
@@ -24,6 +23,7 @@ export default function Navbar({ set, setFlag, flag }: NavbarProps) {
     }
 
     let isOpen = useContext(IsOpen)
+    
     return (
         <div className='h-15'>
             <div className='border-b fixed top-0 left-0 right-0 z-50 bg-white '>
@@ -32,7 +32,15 @@ export default function Navbar({ set, setFlag, flag }: NavbarProps) {
                         <button onClick={set} className='text-2xl'>
                             <i className="fas fa-bars"></i>
                         </button>
-                        <p className='ml-10 text-3xl'>BLACKBOARD</p>
+                       <div className='flex items-center'>
+                       <p className='ml-10 text-3xl'>BLACKBOARD</p>
+                        {classData && classData.class_id && (
+                            <div className='flex items-center ml-10'>
+                                <i className="fas fa-chevron-right text-2xl"></i>
+                                <p className='ml-10 text-3xl'> {classData.class_id.C_Name}</p>
+                            </div>
+                        )}
+                       </div>
                     </div>
                     {
                         isLogedIn ? (<div className='flex gap-10 justify-center items-center '>

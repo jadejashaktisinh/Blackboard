@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import LinkInput from "./LinkInput";
 import { useParams } from "react-router";
 import { showLoader, hideLoader } from "~/utils/loader";    
+import { BACKEND_URL } from "~/utils/env";
 interface PopupFormProps {
   type:string,
   topics:any
@@ -50,7 +51,7 @@ const PopupForm: React.FC<PopupFormProps> = ({ onClose,type,topics }) => {
 
   showLoader();
 
-  fetch("http://localhost:3000/createassignment", {
+  fetch(`${BACKEND_URL}/createassignment`, {
     method: "POST",
     body: formData
   }).then(res => {

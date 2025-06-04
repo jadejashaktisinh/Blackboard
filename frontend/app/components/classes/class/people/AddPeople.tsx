@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { useParams } from 'react-router';
 import { showLoader, hideLoader } from '../../../../utils/loader';
-
+import { BACKEND_URL } from '~/utils/env';
 export default function AddPeople(props:any) {
     const [inputValue, setInputValue] = useState('');
     const {id} = useParams();
 
     const handleSubmit = () => {
         showLoader();
-        fetch("http://localhost:3000/addparticipent",{
+        fetch(`${BACKEND_URL}/addparticipent`,{
           method:"PUT",
           headers:{
             "Content-type": "application/json"

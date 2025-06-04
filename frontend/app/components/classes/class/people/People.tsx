@@ -2,6 +2,7 @@ import { useState,useEffect } from 'react'
 import AddPeople from './AddPeople';
 import { useOutletContext, useParams } from 'react-router'
 import { showLoader, hideLoader } from '~/utils/loader';
+import { BACKEND_URL } from '~/utils/env';
 
 
 
@@ -23,7 +24,7 @@ export default function People() {
     const {id} = useParams()
     useEffect(()=>{
         showLoader();
-            fetch(`http://localhost:3000/getpeople/${id}`)
+        fetch(`${BACKEND_URL}/getpeople/${id}`)
             .then(res => res.json())
             .then(data => {
               

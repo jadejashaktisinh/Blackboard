@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ClassSideMenu from './ClassSideMenu'
 import { Outlet, useNavigate, useOutletContext } from 'react-router'
-import { showLoader } from '../../utils/loader'
-
-
-
-
-
+import { BACKEND_URL } from '../../utils/env'
 
 interface ClassContainerProps {
   flag: boolean;
@@ -31,7 +26,7 @@ export default function ClassContainer() {
 
     try {
       setIsLoading(true);
-      const URI = `http://localhost:3000/getclasses/${UID}`;
+      const URI = `${BACKEND_URL}/getclasses/${UID}`;
       const response = await fetch(URI, {
         method: "GET",
       });

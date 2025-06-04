@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useOutletContext, useParams } from 'react-router';
 import StreamList from './StreamList';
-
+import { BACKEND_URL } from '~/utils/env';
 
 interface ClassContextType {
   selectedClass: any;
@@ -13,7 +13,7 @@ export default function Stream() {
   const {id} = useParams()
   useEffect(() => {
 
-    fetch(`http://localhost:3000/getstreamassignmnets/${id}`, {
+    fetch(`${BACKEND_URL}/getstreamassignmnets/${id}`, {
       method: "GET"
     }).then(res => {
       res.json().then(data => {

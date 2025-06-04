@@ -1,19 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router'
 import { showLoader, hideLoader } from '../../utils/loader'
-
+import { BACKEND_URL } from '~/utils/env';
+import AuthContext from '~/Contex/AuthenticationContext';
 interface ClassListProps {
   item: any
 }
 
 export default function ClassList({ item }: ClassListProps) {
 
+  const {setClassData}:any = useContext(AuthContext)
+
   console.log(item)
   function allowInvite(e: React.MouseEvent){
     e.preventDefault(); // Prevent the Link component from navigating
     
     showLoader();
-    fetch("http://localhost:3000/allow-invite", {
+    fetch(`${BACKEND_URL}/allow-invite`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json"
@@ -43,7 +46,7 @@ export default function ClassList({ item }: ClassListProps) {
     e.preventDefault(); // Prevent the Link component from navigating
     
     showLoader();
-    fetch("http://localhost:3000/decline-invite", {
+    fetch(`${BACKEND_URL}/decline-invite`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json"
@@ -70,12 +73,12 @@ export default function ClassList({ item }: ClassListProps) {
   }
 
   return (
-    <Link to={`${item.request === "pending" || item.request === "declined"? "/classes" : `/classes/${item.class_id._id}` }`}>
+    <Link to={`${item.request === "pending" || item.request === "declined"? "/classes" : `/classes/${item.class_id._id}` }`} onClick={() => setClassData(item)}>
       <div className='h-fit w-full '>
         
         <div className='bg-green-800  flex justify-between items-center text-white rounded-t-lg p-2'>
           <div>
-            <p className='text-4xl'>{item.class_id.C_Subject}</p>
+            <p className='text-4xl'>{item.class_id.C_Name}</p>
             <p className='text-lg'>{item.class_id.C_Subject}</p>
           </div>
 

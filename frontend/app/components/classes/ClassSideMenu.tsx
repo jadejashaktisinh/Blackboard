@@ -3,7 +3,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import DropDownClasses from './DropDownClasses';
 import { IsOpen } from '~/Contex/IsOpen';
 import { Link } from 'react-router';
-
+import AuthContext from '~/Contex/AuthenticationContext';
 
 interface ClassSideMenuProps{     
   classData:any
@@ -11,6 +11,7 @@ interface ClassSideMenuProps{
 
 export default function ClassSideMenu({classData}:ClassSideMenuProps) {
    
+    const {setClassData}:any = useContext(AuthContext)
 
     let isOpen = useContext(IsOpen)
     console.log(isOpen);
@@ -33,7 +34,7 @@ export default function ClassSideMenu({classData}:ClassSideMenuProps) {
       
         <ul className="space-y-4 text-xl">
           <li><i className="fa-solid fa-house"></i>
-          <Link to={"/classes"}>Home</Link>
+          <Link to={"/classes"} onClick={() => setClassData(null)}>Home</Link>
           </li>
            
                </ul>

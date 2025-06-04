@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 import AuthContext from "~/Contex/AuthenticationContext";
-
+import { BACKEND_URL } from "~/utils/env";
 export default function Login(){
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +17,7 @@ export default function Login(){
   const navigation =  useNavigate();
    function handleSubmit(e:any){
     e.preventDefault();
-    fetch('http://localhost:3000/signup',{
+    fetch(`${BACKEND_URL}/signup`,{
       method:"POST",
       headers:{
           "Content-type": "application/json"

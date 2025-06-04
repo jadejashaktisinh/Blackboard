@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import AuthContext from '~/Contex/AuthenticationContext';
 import { showLoader, hideLoader } from '~/utils/loader';
 import { useOutletContext } from 'react-router';
+import { BACKEND_URL } from '~/utils/env';
 
 interface CreateClassProps {
     flag: boolean;
@@ -19,7 +20,7 @@ export default function CreateClass({ closePopup, setFlag, flag  }: CreateClassP
 
     const handleSubmit = () => {
         showLoader();
-        fetch('http://localhost:3000/create',{
+        fetch(`${BACKEND_URL}/create`,{
             method:"POST",
             headers:{
                 "Content-type": "application/json"
