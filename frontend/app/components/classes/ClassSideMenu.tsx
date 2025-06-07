@@ -19,10 +19,10 @@ export default function ClassSideMenu({classData}:ClassSideMenuProps) {
 
   return (
 
-    <div className={`${isOpen ? "w-96" : "w-0"} `}>
+    <div className={`${isOpen ? "w-96" : "w-0"} bg-white`}>
 
 
-    <div className={` h-[100vh]  fixed ${isOpen ? "w-72" : "w-0"}  z-50 overflow-auto`}>
+    <div className={` h-[100vh]  fixed ${isOpen ? "w-72" : "w-0"}  z-50 overflow-auto bg-white`}>
   
       
       <div
