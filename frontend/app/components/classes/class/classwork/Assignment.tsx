@@ -49,7 +49,7 @@ export default function Assignment({ name, type, date, files }: assignment) {
                     {
                         files && files.map((item: any, i: any) => (
 
-                            <a href={item.cloudinary_url} target="_blank" rel="noopener noreferrer" className='text-blue-600'>
+                            <a href={`https://mozilla.github.io/pdf.js/web/viewer.html?file=${item.cloudinary_url}`} target="_blank" rel="noopener noreferrer" className='text-blue-600'>
 
                                 <div className='group border-1 sm:flex mb-3'>
                                     <div className='sm:w-32 h-24 border-r-1 flex justify-center items-center' style={{backgroundImage: `url(${item.cloudinary_url})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
