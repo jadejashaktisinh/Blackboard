@@ -74,7 +74,7 @@ export default function ClassList({ item }: ClassListProps) {
 
   return (
     <Link to={`${item.request === "pending" || item.request === "declined"? "/classes" : `/classes/${item.class_id._id}` }`} onClick={() => setClassData(item)}>
-      <div className='h-fit w-full '>
+      <div className='h-fit sm:w-full w-80 '>
         
         <div className='bg-green-800  flex justify-between items-center text-white rounded-t-lg p-2'>
           <div>
