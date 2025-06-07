@@ -6,7 +6,7 @@ import Assignment from './Assignment';
 import { useOutletContext, useParams } from 'react-router';
 import CreateTopic from './CreateTopic';
 import { showLoader, hideLoader } from '~/utils/loader';
-
+import { BACKEND_URL } from '~/utils/env';
 interface ClassContextType {
     selectedClass: any;
   }
@@ -29,7 +29,7 @@ export default function ClassWork() {
 
     const refreshAssignments = () => {
         showLoader();
-        fetch(`http://localhost:3000/getassignmnets/${id}`,{
+        fetch(`${BACKEND_URL}/getassignmnets/${id}`,{
             method:"GET"
         }).then(res =>{
             res.json().then(data =>{
