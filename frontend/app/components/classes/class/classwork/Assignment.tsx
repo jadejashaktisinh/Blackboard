@@ -51,8 +51,8 @@ export default function Assignment({ name, type, date, files }: assignment) {
 
                             <a href={item.cloudinary_url} target="_blank" rel="noopener noreferrer" className='text-blue-600'>
 
-                                <div className='group border-1 flex mb-3'>
-                                    <div className='w-32 h-24 border-r-1 flex justify-center items-center' style={{backgroundImage: `url(${item.cloudinary_url})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
+                                <div className='group border-1 sm:flex mb-3'>
+                                    <div className='sm:w-32 h-24 border-r-1 flex justify-center items-center' style={{backgroundImage: `url(${item.cloudinary_url})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
                                     {
                                     item.contentType.split("/")[1] === "pdf" && (
                                         <iframe 

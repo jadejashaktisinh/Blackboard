@@ -25,9 +25,9 @@ export default function Navbar({ set, setFlag, flag }: NavbarProps) {
     let isOpen = useContext(IsOpen)
     
     return (
-        <div className='h-15'>
+        <div className='h-15 w-100vh'>
             <div className='border-b fixed top-0 left-0 right-0 z-50 bg-white '>
-                <nav className='flex justify-between m-2 items-center'>
+                <nav className='flex justify-between p-2 items-center '>
                     <div className='flex ml-2'>
                         <button onClick={set} className='sm:text-2xl text-xl '>
                             <i className="fas fa-bars"></i>
